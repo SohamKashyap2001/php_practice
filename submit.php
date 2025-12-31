@@ -63,7 +63,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     //Execute the statement 
     if($stmt->execute()){
-        echo "New Record Created Successfully!";
+        // Redirect To login page
+        header("Location: login.php?registered=success");
+        exit;
     }else{
         echo "Error: " . $stmt->error;
     }
@@ -73,6 +75,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $connection->close();
 
 }else {
-    echo "Error!";
+    echo "Invalid request!";
 }
 ?>
